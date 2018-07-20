@@ -1,11 +1,11 @@
 <div>
-    <form class="" action="index.php" method="post">
-        <h3>A faire</h3>
+    <form class="content" action="index.php" method="post">
+        <h3>Trucs à faire</h3>
         <?php
         foreach ($oldData as $key => $value) {
             if ($value['done'] != 'yes') {
                 $newLine = '<input type="checkbox" name="' . $key . '" value="yes">';
-                $newLine = $newLine . $value['task'] . '<br>';
+                $newLine = $newLine . '<span class="tasklist">' . $value['task'] . '</span><br>';
                 echo $newLine;
             }
         }
@@ -20,12 +20,12 @@
         }
         ?>
 
-        <h3>Déjà fait</h3>
+        <h3>Trucs déjà faits</h3>
         <?php
         foreach ($oldData as $key => $value) {
             if ($value['done'] == 'yes') {
                 $newLine = '<input type="checkbox" name="' . $key . '" value="no">';
-                $newLine = $newLine . '<del>' . $value['task'] . '</del><br>';
+                $newLine = $newLine . '<span class="tasklist"><del>' . $value['task'] . '</del></span><br>';
                 echo $newLine;
             }
         }

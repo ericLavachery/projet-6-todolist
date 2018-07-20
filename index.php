@@ -11,7 +11,7 @@ if(file_exists('todo.json'))
         $updatedData = array_merge($oldData,$extraData);
         $updatedDataJSON = json_encode($updatedData);
         if(file_put_contents('todo.json', $updatedDataJSON)){
-            $addMessage = "Tâche rajoutée!";
+            $addMessage = '<span class="taskMessage">Tâche rajoutée!</span>';
         }
         $oldData = $updatedData;
     }
@@ -31,7 +31,7 @@ if(file_exists('todo.json'))
         if ($changes == 'yes') {
             $updatedDataJSON = json_encode($oldData);
             if(file_put_contents('todo.json', $updatedDataJSON)){
-                $changeMessage = "Changements éffectués!";
+                $changeMessage = '<span class="changeMessage">Changements éffectués!</span>';
             }
         }
     }
@@ -52,15 +52,17 @@ else
 <head>
     <meta charset="utf-8">
     <title>ToDoList : Gestionnaire</title>
+    <link href="https://fonts.googleapis.com/css?family=Englebert|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>To Do List</h1>
-
-    <?php include 'content.php' ?>
-    <br><hr><br>
-    <?php include 'form.php' ?>
+    <div class="wrap">
+        <h1>To Do List</h1>
+        <?php include 'content.php' ?>
+        <br>
+        <?php include 'form.php' ?>
+    </div>
 
 </body>
 </html>
